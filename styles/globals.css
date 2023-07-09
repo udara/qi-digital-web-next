@@ -2,26 +2,163 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer components {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply min-w-[300px];
+    }
+
+    /*Resources Section*/
+    .resources-header-bg {
+        @apply bg-burgundy h-32 text-center md:h-64 md:text-left items-center pl-4 xl:pl-0;
+    }
+
+    .resources-content-bg {
+        @apply bg-white;
+    }
+
+    .resources-content-bg-h1 {
+        @apply font-semibold font-CormorantGaramond text-3xl text-white;
+    }
+
+    .resources-content-article-summary {
+        @apply font-CormorantGaramond text-black p-4;
+    }
+
+    .resources-content-article-summary h2 {
+        @apply font-bold text-2xl;
+    }
+
+    .resources-article-header-bg {
+        @apply bg-article-header h-32 text-center text-black md:h-64 md:text-left items-center pl-4 xl:pl-0;
+    }
+
+    .resources-article-main-image {
+        @apply w-full bg-bottom bg-cover bg-no-repeat lg:h-[550px] mb-6;
+    }
+
+    .resources-article-title-wrapper {
+        @apply flex h-full pb-4 md:pb-0 md:h-32 w-1/2 items-start text-left content-start font-CormorantGaramond text-3xl;
+    }
+
+    .resources-article-body > blockquote {
+        @apply p-8 my-6 border-l-4 border-article-quote-bg bg-article-quote-bg;
+    }
+
+    .resources-article-body > blockquote > p {
+        @apply text-lg font-medium leading-relaxed text-black;
+    }
+
+    .resources-article-title > span {
+        @apply font-semibold font-bold;
+    }
+
+    .resources-article-summary {
+        @apply hidden lg:flex h-32 w-1/2 items-end font-medium font-medium;
+    }
+
+    .resources-article-body > p {
+        @apply mb-4;
+    }
+
+    .resources-article-body > h3 {
+        @apply font-semibold mb-2 mt-8 text-xl;
+    }
+
+    .resources-article-body a {
+        @apply text-article-link;
+    }
+
+    .resources-article-body a:hover {
+        @apply text-article-link-hover;
+    }
+
+    /*Resources Section End*/
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+    font-family: "LexendDeca";
+    src: url(../public/fonts/LexendDeca-Light.ttf) format("opentype");
+    font-weight: 300;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+    font-family: "LexendDeca";
+    src: url(../public/fonts/LexendDeca-Regular.ttf) format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "SourceSansPro";
+    src: url(../public/fonts/SourceSansPro-Light.ttf) format("opentype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "SourceSansPro";
+    src: url(../public/fonts/SourceSansPro-Regular.ttf) format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "SourceSansPro";
+    src: url(../public/fonts/SourceSansPro-SemiBold.ttf) format("opentype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "SourceSansPro";
+    src: url(../public/fonts/SourceSansPro-Bold.ttf) format("opentype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Manrope";
+    src: url(../public/fonts/Manrope-Light.ttf) format("opentype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Manrope";
+    src: url(../public/fonts/Manrope-Regular.ttf) format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Manrope";
+    src: url(../public/fonts/Manrope-SemiBold.ttf) format("opentype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Manrope";
+    src: url(../public/fonts/Manrope-Bold.ttf) format("opentype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Manrope";
+    src: url(../public/fonts/Manrope-ExtraBold.ttf) format("opentype");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "CormorantGaramond";
+    src: url(../public/fonts/CormorantGaramond-Regular.ttf) format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "CormorantGaramond";
+    src: url(../public/fonts/CormorantGaramond-Medium.ttf) format("opentype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "CormorantGaramond";
+    src: url(../public/fonts/CormorantGaramond-SemiBold.ttf) format("opentype");
+    font-weight: 600;
 }

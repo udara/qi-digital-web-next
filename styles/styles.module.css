@@ -1,0 +1,41 @@
+/** rotate **/
+.rotate {
+  animation: rotation 60s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.horse {
+  background-image: url("https://qi-web-assets.nyc3.cdn.digitaloceanspaces.com/horse.jpg");
+}
+
+/* Small devices */
+@media only screen and (max-width: 640px) {
+  .horse {
+    background-image: url("https://qi-web-assets.nyc3.cdn.digitaloceanspaces.com/horse_mobile.jpg");
+  }
+}
+
+.portal {
+  background-image: url("https://qi-web-assets.nyc3.cdn.digitaloceanspaces.com/mobile.png");
+}
+
+/* Small devices */
+@media only screen and (max-width: 1279px) {
+  .portal {
+    background-image: url("https://qi-web-assets.nyc3.cdn.digitaloceanspaces.com/mobile_tech.png");
+  }
+}
+
+/* Small devices */
+@media only screen and (max-width: 768px) {
+  .portal {
+    background-image: url("https://qi-web-assets.nyc3.cdn.digitaloceanspaces.com/mobile.png");
+  }
+}
