@@ -1,6 +1,7 @@
 // Components.
 import Link from 'next/link'
 import axios from 'axios';
+import Head from "next/head";
 import MarkdownIt from "markdown-it"
 
 import Contact from "../../components/Contact";
@@ -48,6 +49,9 @@ const Article = ({article}) => {
 
     return (
         <>
+            <Head>
+                <title>{article[0].attributes.title}</title>
+            </Head>
             <div className="relative h-[70px]">{nav}</div>
 
             <div className="font-SourceSansPro max-w-[700px] mx-auto px-5 mt-[46px] lg:px-0">
