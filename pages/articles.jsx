@@ -86,7 +86,10 @@ const Articles = ({articles}) => {
 export default Articles;
 
 export async function getStaticProps() {
-  const postsRes = await axios.get('http://localhost:1337/api/articles?populate[author][populate][0]=image&sort[1]=publisedAt%3Aasc');
+  const ProductionUrl = 'https://strap-test-9zlo8.ondigitalocean.app';
+  const localUrl = 'http://localhost:1337';
+
+  const postsRes = await axios.get(`${ProductionUrl}/api/articles?populate[author][populate][0]=image&sort[1]=publisedAt%3Aasc`);
   return {
     props: {
       articles: postsRes.data.data

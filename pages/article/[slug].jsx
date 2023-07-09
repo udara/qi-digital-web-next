@@ -121,9 +121,12 @@ const Article = ({article}) => {
 
 export default Article;
 
+const ProductionUrl = 'https://strap-test-9zlo8.ondigitalocean.app';
+const localUrl = 'http://localhost:1337';
+
 export async function getStaticProps({params}) {
 
-    const postsRes = await axios.get(`http://localhost:1337/api/articles?filters[slug][$eq]=${params.slug}&populate[author][populate][0]=image`);
+    const postsRes = await axios.get(`${ProductionUrl}/api/articles?filters[slug][$eq]=${params.slug}&populate[author][populate][0]=image`);
 
     return {
         props: {
@@ -133,7 +136,7 @@ export async function getStaticProps({params}) {
 }
 
 export async function getStaticPaths() {
-    const articleRes = await axios.get(`http://localhost:1337/api/articles?populate[author][populate][0]=image&sort[1]=publisedAt%3Aasc`);
+    const articleRes = await axios.get(`${ProductionUrl}/api/articles?populate[author][populate][0]=image&sort[1]=publisedAt%3Aasc`);
 
     const paths = articleRes.data.data.map((article) => {
         return {params: {slug: article.attributes.slug}}
