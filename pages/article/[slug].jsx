@@ -39,13 +39,13 @@ const Article = ({article}) => {
                     property="og:title"
                     content={title}
                 />
-                <meta property="og:type" content="website"/>
+                <meta property="og:type" content="article"/>
+                <meta property="og:type" content="article"/>
+                <meta property="og:article:author" content={authorName}/>
+                <meta property="og:article:published_time" content={publishedAt}/>
+                <meta property="og:locale" content="en_GB"/>
                 <meta property="og:url" content={`https://www.qidigital.com/article/${slug}/`}/>
-                <meta
-                    property="og:image"
-                    content={imgUrl}
-                />
-
+                <meta property="og:image" content={imgUrl}/>
                 <meta name="twitter:card" content="summary_large_image"/>
                 <meta name="twitter:site" content="@QiDigitalLtd"/>
                 <meta
@@ -134,7 +134,11 @@ export default Article;
 
 const strapiEndpoint = process.env.STRAPI_ENDPOINT
 
-export async function getStaticProps({params}) {
+export async function getStaticProps(
+    {
+        params
+    }
+) {
 
     const postsRes = await axios.get(`${strapiEndpoint}/api/articles?filters[slug][$eq]=${params.slug}&populate[author][populate][0]=image&populate[image]=*`);
 
