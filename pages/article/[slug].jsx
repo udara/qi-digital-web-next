@@ -40,7 +40,7 @@ const Article = ({article}) => {
                     content={title}
                 />
                 <meta property="og:type" content="website"/>
-                <meta property="og:url" content={`https://www.qidigital.com/article/${slug}/`}>
+                <meta property="og:url" content={`https://www.qidigital.com/article/${slug}/`}/>
                 <meta
                     property="og:image"
                     content={imgUrl}
