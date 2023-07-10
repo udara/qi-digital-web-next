@@ -1,123 +1,23 @@
 // Import React.
-import React, { Fragment, useState, useEffect } from "react";
-import Link from 'next/link'
+import React, { Fragment } from "react";
 
 // Import images.
-const logo = "https://qi-web-assets.nyc3.cdn.digitaloceanspaces.com/logo.png";
-const logoWhite =
-  "https://qi-web-assets.nyc3.cdn.digitaloceanspaces.com/logo-white.png";
 const orbit = "https://qi-web-assets.nyc3.cdn.digitaloceanspaces.com/orbit.svg";
 
 // CSS.
 import styles from "../styles/styles.module.css";
+import MainTop from "./navigation/MainTop";
 
 const Hero = () => {
-  const [state, setState] = useState({
-    scrY: 0,
-    logo_white: false,
-  });
-
-  const getScrollPos = () => {
-    setState({ ...state, scrY: window.scrollY });
-  };
-
-  useEffect(() => {
-    // Client-side-only code
-    window.addEventListener("scroll", getScrollPos);
-  })
-
-
-  useEffect(() => {
-    if (state.scrY >= 0 && state.scrY < 2080) {
-      setState({
-        ...state,
-        logo_white: false,
-      });
-    }
-    if (state.scrY > 2081) {
-      setState({
-        ...state,
-        logo_white: true,
-      });
-    }
-  }, [state.scrY]);
-
-  const nav = state.logo_white ? (
-    <div className="fixed z-20 h-[70px] bg-black inset-x-0 top-0 w-full">
-      <div className="flex justify-between mx-auto h-full max-w-[1480px] lg:px-20 md:px-12 px-6">
-        <Link href='/#hero' scroll={false}>
-          <div
-            className="w-11 h-11 mt-3 bg-contain bg-no-repeat cursor-pointer"
-            style={{
-              backgroundImage: `url(${logoWhite})`,
-            }}
-          ></div>
-        </Link>
-
-        <div className="w-fit flex justify-between sm:text-[14pt] text-[12pt] tracking-wider font-SourceSansPro font-base text-white opacity-70">
-          <div className="cursor-pointer grid content-center sm:px-3 px-1.5">
-            <Link href='/#technology' scroll={false}>
-              <span className="hidden 450:block">TECHNOLOGY</span>
-              <span className="450:hidden block">TECH</span>
-            </Link>
-          </div>
-
-          <div className="cursor-pointer grid content-center sm:px-3 px-1.5">
-            <Link href='/articles'>
-              ARTICLES
-            </Link>
-          </div>
-
-          <div className="cursor-pointer grid content-center sm:pl-3 pl-1.5">
-            <Link href='/#contact' scroll={false}>
-              CONTACT
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  ) : (
-    <div className="fixed z-20 h-[70px] inset-x-0 top-0 w-full">
-      <div className="flex justify-between mx-auto h-full max-w-[1480px] lg:px-20 md:px-12 px-6">
-        <Link href='/#hero' scroll={false}>
-          <div
-            className="w-11 h-11 mt-3 bg-contain bg-no-repeat opacity-70 cursor-pointer"
-            style={{
-              backgroundImage: `url(${logo})`,
-            }}
-          ></div>
-        </Link>
-        <div className="w-fit flex justify-between sm:text-[14pt] text-[12pt] tracking-wider font-SourceSansPro font-base text-black opacity-70">
-          <div className="cursor-pointer grid content-center sm:px-3 px-1.5">
-            <Link href="/#technology" scroll={false}>
-              <span className="hidden 450:block">TECHNOLOGY</span>
-              <span className="450:hidden block">TECH</span>
-            </Link>
-          </div>
-
-          <div className="cursor-pointer grid content-center sm:px-3 px-1.5">
-            <Link href='/articles'>
-              ARTICLES
-            </Link>
-          </div>
-
-          <div className="cursor-pointer grid content-center sm:pl-3 pl-1.5">
-            <Link href='/#contact' scroll={false}>
-              CONTACT
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
   return (
     <Fragment>
       <div
         id="hero"
         className={`${styles.horse} h-[2200px] bg-cover bg-no-repeat bg-bottom bg-gray-300`}
       >
-        <div className="relative h-[70px]">{nav}</div>
+        <div className="relative h-[70px]">
+          <MainTop/>
+        </div>
 
         <div className="relative flex justify-center max-w-[660px] mx-auto">
           <div className="absolute z-10 top-4 w-full">

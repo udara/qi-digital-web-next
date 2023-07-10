@@ -1,5 +1,6 @@
 import React from "react";
 import Link from 'next/link'
+import moment from "moment";
 
 // Import images.
 const arrow_head =
@@ -15,6 +16,8 @@ const ArticleSummary = ({
   readTime,
   link,
 }) => {
+
+  const publishedDate = moment(createdAt, 'YYYY-MM-DD');
   return (
     <div className="sm:flex sm:justify-between sm:gap-10 h-full resources-content-article-summary">
       <div className="text-5xl text-light-grey mb-7">{number}</div>
@@ -30,7 +33,7 @@ const ArticleSummary = ({
                 </h5>
 
                 <h5 className="font-SourceSansPro text-[12pt] text-neutral-400 leading-6 grid content-center ml-1">
-                  - {createdAt}
+                  - {moment(createdAt, 'YYYY-MM-DD').format('D MMM YY')}
                 </h5>
               </div>
 
