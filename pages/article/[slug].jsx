@@ -24,6 +24,7 @@ const Article = ({article}) => {
     const imgUrl = article[0]?.attributes?.image?.data?.attributes?.url ?? null
     const summary = article[0]?.attributes?.summary ?? null
     const category = article[0]?.attributes?.category ?? null
+    const slug = article[0]?.attributes?.slug ?? null
     const publishedAt = article[0].attributes.publisedAt ?? null
     const authorName = article[0].attributes?.author?.data?.attributes?.name ?? null
     const authorImgUrl = article[0].attributes?.author?.data?.attributes?.image?.data?.attributes?.url ?? null
@@ -39,7 +40,7 @@ const Article = ({article}) => {
                     content={title}
                 />
                 <meta property="og:type" content="website"/>
-                <meta property="og:url" content="https://www.qidigital.com/"/>
+                <meta property="og:url" content={`https://www.qidigital.com/article/${slug}/`}>
                 <meta
                     property="og:image"
                     content={imgUrl}
